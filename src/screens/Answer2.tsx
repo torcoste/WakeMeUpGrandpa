@@ -19,10 +19,13 @@ import {
   Button,
   Alert,
   Dimensions,
+  BackHandler,
 } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
 import Animation from 'lottie-react-native';
+
+import {hello} from './../index';
 
 import anim from './../assets/dad-lottie.json';
 
@@ -53,6 +56,11 @@ export default class DetailsScreen extends React.Component {
             You're doing well! {'\n'}
             Have a great day!
           </Text>
+          <Button
+            onPress={() => {BackHandler.exitApp(); hello.stop()}}
+            title="Bye, Grandpa!"
+            color="#56ea"
+          />
           <View
             style={{
               position: 'absolute',

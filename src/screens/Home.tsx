@@ -26,7 +26,13 @@ import Animation from 'lottie-react-native';
 
 import anim from './../assets/ring-lottie.json';
 
+import {hello} from './../index';
+
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.animation.play();
   }
@@ -52,12 +58,22 @@ export default class HomeScreen extends React.Component {
             loop={true}
             source={anim}
           />
-          <View style={{position: "absolute", bottom: 10, width: Dimensions.get("screen").width, padding: 18}}>
-          <Button
-            onPress={() => this.props.navigation.navigate('Details')}
-            title="Okay, I do"
-            color="#56ea"
-          /></View>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 10,
+              width: Dimensions.get('screen').width,
+              padding: 18,
+            }}>
+            <Button
+              onPress={() => {
+                hello.play();
+                this.props.navigation.navigate('Details');
+              }}
+              title="Okay, I do"
+              color="#56ea"
+            />
+          </View>
         </LinearGradient>
       </Fragment>
     );

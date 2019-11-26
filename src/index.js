@@ -8,6 +8,8 @@ import 'react-native-gesture-handler';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
+import Sound from 'react-native-sound';
+
 import Home from './screens/Home';
 import Details from './screens/Details';
 import Quest1 from './screens/Quest1';
@@ -30,5 +32,12 @@ const AppNavigator = createStackNavigator(
     headerMode: 'none',
   },
 );
+
+export const hello = new Sound('ring.mp3', Sound.MAIN_BUNDLE, (error) => {
+  if (error) {
+    console.log('failed to load the sound', error);
+    return;
+  }
+});
 
 AppRegistry.registerComponent(appName, () => createAppContainer(AppNavigator));
