@@ -42,15 +42,16 @@ export default class DetailsScreen extends React.Component {
               this.animation = animation;
             }}
             style={{
-              width: "50%",
-              alignSelf: "center"
+              width: '50%',
+              alignSelf: 'center',
             }}
             loop={true}
             source={anim}
           />
 
-<Text style={styles.buttonText}>
-Are you ready to challenge???
+          <Text style={styles.buttonText}>
+            You're doing well! {'\n'}
+            Have a great day!
           </Text>
           <View
             style={{
@@ -58,13 +59,7 @@ Are you ready to challenge???
               bottom: 10,
               width: Dimensions.get('screen').width,
               padding: 18,
-            }}>
-            <Button
-              onPress={() => this.props.navigation.navigate('Quest1')}
-              title="I'm always ready!"
-              color="#56ea"
-            />
-          </View>
+            }}></View>
         </LinearGradient>
       </Fragment>
     );

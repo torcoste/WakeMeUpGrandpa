@@ -24,7 +24,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Animation from 'lottie-react-native';
 
-import anim from './../assets/dad-lottie.json';
+import anim from './../assets/plane-lottie.json';
 
 export default class DetailsScreen extends React.Component {
   componentDidMount() {
@@ -35,14 +35,14 @@ export default class DetailsScreen extends React.Component {
     return (
       <Fragment>
         <LinearGradient
-          colors={['#ad5389', '#3c1053']}
+          colors={['#1c92d2', '#f2fcfe']}
           style={styles.linearGradient}>
           <Animation
             ref={animation => {
               this.animation = animation;
             }}
             style={{
-              width: "50%",
+              width: "70%",
               alignSelf: "center"
             }}
             loop={true}
@@ -50,7 +50,7 @@ export default class DetailsScreen extends React.Component {
           />
 
 <Text style={styles.buttonText}>
-Are you ready to challenge???
+From which language is the word ‘ketchup’ derived?
           </Text>
           <View
             style={{
@@ -58,11 +58,28 @@ Are you ready to challenge???
               bottom: 10,
               width: Dimensions.get('screen').width,
               padding: 18,
+              height: 270,
+              justifyContent: "space-between"
             }}>
             <Button
-              onPress={() => this.props.navigation.navigate('Quest1')}
-              title="I'm always ready!"
-              color="#56ea"
+              onPress={() => this.props.navigation.navigate('Answer2')}
+              title="Chinese"
+              color="#fa1"
+            />
+            <Button
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Russian"
+              color="#f6af8a"
+            />
+            <Button
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Italian"
+              color="#9072"
+            />
+            <Button
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Francais"
+              color="#0aaaea"
             />
           </View>
         </LinearGradient>
@@ -71,6 +88,7 @@ Are you ready to challenge???
   }
 }
 
+
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
@@ -78,12 +96,12 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   buttonText: {
-    fontSize: 36,
+    fontSize: 30,
     fontFamily: 'Gill Sans',
     textAlign: 'center',
     margin: 24,
     color: '#ffffff',
     backgroundColor: 'transparent',
-    lineHeight: 70,
+    lineHeight: 42,
   },
 });

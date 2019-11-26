@@ -24,7 +24,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import Animation from 'lottie-react-native';
 
-import anim from './../assets/dad-lottie.json';
+import anim from './../assets/cosmo-lottie.json';
 
 export default class DetailsScreen extends React.Component {
   componentDidMount() {
@@ -35,7 +35,7 @@ export default class DetailsScreen extends React.Component {
     return (
       <Fragment>
         <LinearGradient
-          colors={['#ad5389', '#3c1053']}
+          colors={['#7F00FF', '#E100FF']}
           style={styles.linearGradient}>
           <Animation
             ref={animation => {
@@ -43,14 +43,15 @@ export default class DetailsScreen extends React.Component {
             }}
             style={{
               width: "50%",
-              alignSelf: "center"
+              alignSelf: "center",
+              marginTop: 24
             }}
             loop={true}
             source={anim}
           />
 
 <Text style={styles.buttonText}>
-Are you ready to challenge???
+Who was the first person to travel into outer space?
           </Text>
           <View
             style={{
@@ -58,11 +59,28 @@ Are you ready to challenge???
               bottom: 10,
               width: Dimensions.get('screen').width,
               padding: 18,
+              height: 270,
+              justifyContent: "space-between"
             }}>
             <Button
-              onPress={() => this.props.navigation.navigate('Quest1')}
-              title="I'm always ready!"
-              color="#56ea"
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Nil Armstrong"
+              color="#560"
+            />
+            <Button
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Steve Jobs"
+              color="#56e78a"
+            />
+            <Button
+              onPress={() => this.props.navigation.navigate('Answer1')}
+              title="Yuriy Gagarin"
+              color="#972"
+            />
+            <Button
+              onPress={() => Alert.alert("That's wrong!")}
+              title="Vladimir Putin"
+              color="#0aea"
             />
           </View>
         </LinearGradient>
@@ -78,12 +96,12 @@ const styles = StyleSheet.create({
     paddingRight: 15,
   },
   buttonText: {
-    fontSize: 36,
+    fontSize: 30,
     fontFamily: 'Gill Sans',
     textAlign: 'center',
     margin: 24,
     color: '#ffffff',
     backgroundColor: 'transparent',
-    lineHeight: 70,
+    lineHeight: 42,
   },
 });

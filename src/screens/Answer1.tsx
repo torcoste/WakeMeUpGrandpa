@@ -35,7 +35,7 @@ export default class DetailsScreen extends React.Component {
     return (
       <Fragment>
         <LinearGradient
-          colors={['#ad5389', '#3c1053']}
+          colors={['#06beb6', '#48b1bf']}
           style={styles.linearGradient}>
           <Animation
             ref={animation => {
@@ -50,7 +50,8 @@ export default class DetailsScreen extends React.Component {
           />
 
 <Text style={styles.buttonText}>
-Are you ready to challenge???
+  Great job! {"\n"}
+Keep it up, Victor!
           </Text>
           <View
             style={{
@@ -60,8 +61,8 @@ Are you ready to challenge???
               padding: 18,
             }}>
             <Button
-              onPress={() => this.props.navigation.navigate('Quest1')}
-              title="I'm always ready!"
+              onPress={() => this.props.navigation.navigate('Quest2')}
+              title="Ok, I will!"
               color="#56ea"
             />
           </View>
