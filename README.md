@@ -12,4 +12,4 @@ Tested only on Android!
 It was made only for StudySmarter hackathon.
 
 
-[Download APK](apk-release.apk)
+[Download APK](app-release.apk)
