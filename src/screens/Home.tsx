@@ -18,43 +18,45 @@ import {
   StatusBar,
   Button,
   Alert,
+  Dimensions,
 } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
+import Animation from 'lottie-react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import anim from './../assets/ring-lottie.json';
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    // title: "Home",
-    headerTitle: () => <Text> Home </Text>,
-    headerRight: () => (
-      <Button
-        onPress={() => Alert.alert('This is a button!')}
-        title="Button"
-        color="#000"
-      />
-    ),
-  };
-
-  usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
+  componentDidMount() {
+    this.animation.play();
+  }
 
   render() {
     return (
       <Fragment>
         <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
+          colors={['#ff9a9e', '#fad0c4']}
           style={styles.linearGradient}>
           <Text style={styles.buttonText}>
             VICTOR, {'\n'}
             WAKE UP!
           </Text>
+
+          <Animation
+            ref={animation => {
+              this.animation = animation;
+            }}
+            style={{
+              flex: 1,
+            }}
+            loop={true}
+            source={anim}
+          />
+          <View style={{position: "absolute", bottom: 10, width: Dimensions.get("screen").width, padding: 18}}>
+          <Button
+            onPress={() => this.props.navigation.navigate('Details')}
+            title="Okay, I do"
+          /></View>
         </LinearGradient>
       </Fragment>
     );
@@ -74,6 +76,6 @@ const styles = StyleSheet.create({
     margin: 24,
     color: '#ffffff',
     backgroundColor: 'transparent',
-
+    lineHeight: 70,
   },
 });
