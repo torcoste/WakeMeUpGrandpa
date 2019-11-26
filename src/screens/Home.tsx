@@ -20,6 +20,8 @@ import {
   Alert,
 } from 'react-native';
 
+import LinearGradient from 'react-native-linear-gradient';
+
 import {
   Header,
   LearnMoreLinks,
@@ -46,59 +48,32 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <Fragment>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            <Header />
-          </ScrollView>
-            <Button
-              onPress={() => this.props.navigation.navigate('Details')}
-              title="Go Details "
-              color="#000"
-            />
-        </SafeAreaView>
+        <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={styles.linearGradient}>
+          <Text style={styles.buttonText}>
+            VICTOR, {'\n'}
+            WAKE UP!
+          </Text>
+        </LinearGradient>
       </Fragment>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  buttonText: {
+    fontSize: 36,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 24,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+
   },
 });
