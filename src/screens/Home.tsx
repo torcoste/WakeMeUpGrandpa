@@ -56,6 +56,7 @@ export default class HomeScreen extends React.Component {
           <Button
             onPress={() => this.props.navigation.navigate('Details')}
             title="Okay, I do"
+            color="#56ea"
           /></View>
         </LinearGradient>
       </Fragment>
