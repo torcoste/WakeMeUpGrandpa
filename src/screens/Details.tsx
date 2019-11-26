@@ -17,116 +17,73 @@ import {
   Text,
   StatusBar,
   Button,
-  Alert
+  Alert,
+  Dimensions,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import LinearGradient from 'react-native-linear-gradient';
+import Animation from 'lottie-react-native';
+
+import anim from './../assets/dad-lottie.json';
 
 export default class DetailsScreen extends React.Component {
-  static navigationOptions = {
-    // title: "Home", 
-    headerTitle: () => <Text> Details </Text>,
-    headerRight: () => (
-      <Button
-        onPress={() => Alert.alert('This is a button!')}
-        title="Info"
-        color="#000"
-      />
-    ),
-  };
-
-  usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
+  componentDidMount() {
+    this.animation.play();
+  }
 
   render() {
     return (
       <Fragment>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            <Header />
-            {!this.usingHermes ? null : (
-              <View style={styles.engine}>
-                <Text style={styles.footer}>Engine: Hermes</Text>
-              </View>
-            )}
-            <View style={styles.body}>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Step One</Text>
-                <Text style={styles.sectionDescription}>
-                  Edit <Text style={styles.highlight}>App.tsx</Text> to change
-                  this screen and then come back to see your edits.
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>See Your Changes</Text>
-                <Text style={styles.sectionDescription}>
-                  <ReloadInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Debug</Text>
-                <Text style={styles.sectionDescription}>
-                  <DebugInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Learn More</Text>
-                <Text style={styles.sectionDescription}>
-                  Read the docs to discover what to do next:
-                </Text>
-              </View>
-              <LearnMoreLinks />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
+        <LinearGradient
+          colors={['#ad5389', '#3c1053']}
+          style={styles.linearGradient}>
+          <Animation
+            ref={animation => {
+              this.animation = animation;
+            }}
+            style={{
+              width: "50%",
+              alignSelf: "center"
+            }}
+            loop={true}
+            source={anim}
+          />
+
+<Text style={styles.buttonText}>
+Are you ready to challenge???
+          </Text>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 10,
+              width: Dimensions.get('screen').width,
+              padding: 18,
+            }}>
+            <Button
+              onPress={() => this.props.navigation.navigate('Home')}
+              title="I'm always ready!"
+              color="#56ea"
+            />
+          </View>
+        </LinearGradient>
       </Fragment>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  buttonText: {
+    fontSize: 36,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 24,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+    lineHeight: 70,
   },
 });
